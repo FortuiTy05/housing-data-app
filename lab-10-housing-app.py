@@ -10,7 +10,7 @@ def load_housing_data():
 
 df = load_housing_data()
 
-st.title("California Housing Data (1990)")
+st.title("California Housing Data (1990) by FortuiTy Liu")
 st.caption("See more filters in the sidebar:")
 
 with st.sidebar:
@@ -52,8 +52,7 @@ st.map(
     filtered_df,
     latitude="latitude",
     longitude="longitude",
-    size=80,
-    color="median_house_value",
+    size=80,  
     use_container_width=True
 )
 
