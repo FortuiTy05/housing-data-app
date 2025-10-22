@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
-st.set_page_config(page_title="California Housing Data (1990)", page_icon="🏠", layout="wide")
+st.set_page_config(page_title="California Housing Data (1990)")
 
 def load_housing_data():
     df = pd.read_csv("housing.csv")
@@ -57,10 +58,8 @@ st.map(
 )
 
 st.subheader("Histogram of Median House Value")
-st.bar_chart(
-    data=filtered_df["median_house_value"],
-    bins=30,
-    use_container_width=True,
-    y_label="Count",
-    x_label="Median House Value"
-)
+fig, ax = plt.subplots()
+ax.hist(filtered_df["median_house_value"], bins=30)
+ax.set_xlabel("Median House Value")
+ax.set_ylabel("Count")
+st.pyplot(fig)
